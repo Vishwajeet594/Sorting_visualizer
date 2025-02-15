@@ -1,1 +1,1 @@
-# Sort_visualizer
+# Sorting_visualizer
