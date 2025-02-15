@@ -1,0 +1,227 @@
+/* New Color Theme Variables */
+:root {
+  --primary-color: #ff6f61; /* Vibrant coral */
+  --secondary-color: #6b5b95; /* Engaging muted purple */
+  --accent-color: #feb236;    /* Mustard yellow */
+  --light-color: #f7f7f7;     /* Off white */
+  --btn-bg: #ff6f61;
+  --btn-hover-bg: #ff8a7b;
+}
+
+/* Global Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  user-select: none;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: var(--light-color);
+}
+
+/* Updated Engaging Header Styles */
+.site-header {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: #fff;
+  padding: 1.5em 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+.site-title {
+  font-size: 2.5em;
+  cursor: pointer;
+  margin-bottom: 0.2em;
+}
+.tagline {
+  font-size: 1.2em;
+  margin-bottom: 0.3em;
+}
+.header-description {
+  font-size: 1em;
+  font-weight: 300;
+}
+
+/* Navbar Styles */
+.nav-container {
+  margin-top: 0.5em;
+}
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1em;
+  font-size: 18px;
+  min-height: 70px;
+  padding: 0.8em 0;
+  background-color: var(--secondary-color);
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.navbar a,
+.navbar select {
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background-color: var(--btn-bg);
+  border: none;
+}
+.navbar a:hover,
+.navbar select:hover {
+  background-color: var(--btn-hover-bg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.navbar select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.navbar > .icon {
+  display: none;
+}
+#menu,
+#random,
+#start {
+  cursor: pointer;
+}
+
+/* Updated Sorting Visualizer Window */
+.center {
+  margin: 20px auto;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 6px;
+  height: 500px; /* Decreased height for a more focused view */
+  width: 85%;     /* Adjusted width */
+  max-width: 900px;
+  background: #fff;
+  border: 2px solid var(--primary-color);
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.array {
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  padding: 1rem;
+  gap: 4px; /* Increased gap between bars */
+}
+.cell {
+  flex: 1;
+  background-color: #ccc;
+  transition: all 0.4s ease-in;
+  position: relative;
+  border-radius: 4px;
+}
+
+/* Optional: Class for random effects (to be added via JS if desired) */
+.cell.random {
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+}
+
+/* Different Bar States */
+/* Sorted */
+.cell.done {
+  background-color: #81c784; /* Green */
+  color: #fff;
+}
+/* Being compared */
+.cell.visited {
+  background-color: #64b5f6; /* Light blue */
+  color: #fff;
+}
+/* Current focus */
+.cell.current {
+  background-color: #42a5f5; /* Deeper blue */
+  color: #fff;
+}
+/* Selected as minimum */
+.cell.min {
+  background-color: var(--accent-color); /* Mustard yellow */
+  color: #fff;
+}
+/* Chosen as pivot */
+.cell.pivot {
+  background-color: #ffcc80; /* Light orange */
+  color: #fff;
+}
+
+/* New Rule: Display the number on each bar */
+.cell::after {
+  content: attr(data-value);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Updated Engaging Footer Styles */
+.site-footer {
+  background: var(--secondary-color);
+  color: #fff;
+  padding: 1.5em 0;
+  text-align: center;
+  margin-top: auto;
+}
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+.footer-content p {
+  margin: 0.5em 0;
+  font-size: 1em;
+}
+.social-links {
+  margin: 0.8em 0;
+}
+.social-links a {
+  color: #fff;
+  margin: 0 0.7em;
+  font-size: 1.8em;
+  transition: color 0.3s;
+}
+.social-links a:hover {
+  color: var(--primary-color);
+}
+.link {
+  text-decoration: none;
+  font-weight: bold;
+  color: #ff5252;
+  font-size: 20px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+  .navbar {
+    gap: 0.8em;
+  }
+  .site-title {
+    font-size: 2em;
+  }
+  .navbar *,
+  .navbar a,
+  .navbar select {
+    font-size: 16px;
+  }
+  .footer-content {
+    font-size: 0.9em;
+  }
+}
